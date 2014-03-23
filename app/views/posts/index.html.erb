@@ -1,0 +1,21 @@
+<h1> Listing Posts <h1>
+  
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Text</th>
+      <th>Edit</th>
+    </tr>
+    
+    <% @posts.each do |post| %>
+    <tr>
+      <td><%= link_to "click to show the show page for: #{ post.title }", post_path(post) %></td>
+        <td><%= link_to "click to show the show page for: #{ post.text }", post_path(post) %></td>
+      <td><%= link_to "edit this entry", edit_post_path(post) %></td>
+      <td><%= link_to 'Destroy', post_path(post),
+                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+      <% end %>
+  </table>
+ <%#= link_to "home page", controller:"welcome", action: "index"  %>
+  <%= link_to "home page", welcome_index_path %>
